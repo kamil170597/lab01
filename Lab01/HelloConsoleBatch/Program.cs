@@ -33,7 +33,7 @@ namespace HelloConsoleBatch
                     imie=args[0];
                     nazwisko=args[1];
                     Console.WriteLine($"Witaj {imie} {nazwisko}");
-                }else if(args.Length==3)
+                }else if(args.Length>=3)
                 {
                     imie=args[0];
                     nazwisko=args[1];
@@ -41,7 +41,7 @@ namespace HelloConsoleBatch
                    if(wiek>=67)
                     {
                         Console.WriteLine("Jestes emerytem.");
-                    }else 
+                    }else
                         {
                             Console.WriteLine($"Witaj {imie} {nazwisko}");
                             Console.WriteLine($"Twoj wiek: {wiek}");
