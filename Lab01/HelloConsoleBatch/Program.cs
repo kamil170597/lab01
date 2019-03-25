@@ -11,17 +11,35 @@ namespace HelloConsoleBatch
         static void Main(string[] args)
         {
 
-            string imie = args[0];
-            string nazwisko = args[1];
+            string imie;
+            string nazwisko;
             int wiek = Convert.ToInt32(args[2]);
 
-            Console.WriteLine($"Witaj {imie} {nazwisko}");
+            //Console.WriteLine($"Witaj {imie} {nazwisko}");
 
-            Console.WriteLine($"Twoj wiek: {wiek}");
+            //Console.WriteLine($"Twoj wiek: {wiek}");
 
-            if(wiek>0)
-            {
-                if(wiek>=67)
+        if(args.Length != 0)
+        {
+           if(args.Length ==1)
+           {
+                imie = args[0];
+                Console.WriteLine($"Witaj {imie}");
+
+           }else
+                if(args.Length == 2)
+                {
+                    imie = args[0];
+                    nazwisko = args[1];
+                    Console.WriteLine($"Witaj {imie} {nazwisko}");
+
+                }else
+                    if(wiek>0)
+            {       
+                   
+                    imie = args[0];
+                    nazwisko = args[1];
+                    if(wiek>=67)
                 {
                     Console.WriteLine("Jestes emerytem");
 
@@ -30,14 +48,17 @@ namespace HelloConsoleBatch
                 {
                     Console.WriteLine($"Do emerytury zostalo ci: {67-wiek}");
                 }
-            }
-            else
+
+            }else
+                 {
+                    Console.WriteLine("Bledne Dane");
+                 }
+           
+        }else
             {
                 Console.WriteLine("Bledne Dane");
             }
-
-
-
-        }
+        }    
     }
+
 }
