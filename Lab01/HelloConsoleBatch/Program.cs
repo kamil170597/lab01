@@ -13,52 +13,41 @@ namespace HelloConsoleBatch
 
             string imie="";
             string nazwisko="";
-            int wiek=0;
+            int wiek;
 
             //Console.WriteLine($"Witaj {imie} {nazwisko}");
 
             //Console.WriteLine($"Twoj wiek: {wiek}");
 
-            if(args.Length != 0)
+            if(args.Length ==0 )
             {
-            wiek = Convert.ToInt32(args[2]);
+          
+                Console.WriteLine($"Brak Danych");
+            }else
                 if(args.Length ==1)
                 {
-                    imie = args[0];
-                        Console.WriteLine($"Witaj {imie}");
-
-                }else
-                    if(args.Length == 2)
-                    {
-                        imie = args[0];
-                        nazwisko = args[1];
-                        Console.WriteLine($"Witaj {imie} {nazwisko}");
-
-                    }else
-                if(wiek>0)
-                {       
-                   
-                imie = args[0];
-                nazwisko = args[1];
-
-                    if(wiek>=67)
-                    {
-                        Console.WriteLine("Jestes emerytem");
-
-                    }
-                    else
-                    {
-                        Console.WriteLine($"Do emerytury zostalo ci: {67-wiek}");
-                    }
-
-                }else
-                    {
-                        Console.WriteLine("Bledne Dane");
-                    }
-           
-            }else
+                    imie=args[0];
+                    Console.WriteLine($"Witaj {imie}");
+                }else if(args.Length ==2)
                 {
-                    Console.WriteLine("Bledne Dane");
+                    imie=args[0];
+                    nazwisko=args[1];
+                    Console.WriteLine($"Witaj {imie} {nazwisko}");
+                }else if(args.Length==3)
+                {
+                    imie=args[0];
+                    nazwisko=args[1];
+                    wiek=Convert.ToInt32(args[2]);
+                   if(wiek>=67)
+                    {
+                        Console.WriteLine("Jestes emerytem.");
+                    }else 
+                        {
+                            Console.WriteLine($"Witaj {imie} {nazwisko}");
+                            Console.WriteLine($"Twoj wiek: {wiek}");
+                            Console.WriteLine($"Do emerytury zostalo ci: {67-wiek}");
+                            
+                        }
                 }
         }    
     }
