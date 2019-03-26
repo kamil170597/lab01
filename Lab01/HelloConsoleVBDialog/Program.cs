@@ -13,25 +13,39 @@ namespace HelloConsoleVBDialog
         {
             //Interaction.MsgBox("Aplikacja na powitanie!",MsgBoxStyle.OkOnly | MsgBoxStyle.Information,"Tytul okienka");
 
+           string imie=Interaction.InputBox("Podaj imie","Okienko imie");
+            if(imie=="")
+                {
+                    Interaction.MsgBox("Koniec", MsgBoxStyle.OkOnly |MsgBoxStyle.Information,"Koniec");
+
+                }else{
+                        Console.WriteLine($"Podano imie {imie}");
+                        string nazwisko = Interaction.InputBox("Podaj nazwisko", "Okienko nazwisko");
+                        if(nazwisko=="")
+                        {
+                            Interaction.MsgBox("Koniec",MsgBoxStyle.OkOnly | MsgBoxStyle.Information,"Koniec");
+                        }else{
+                                Console.WriteLine($"Podano nazwisko {nazwisko}");
+                                Interaction.MsgBox($"Wiaj {imie} {nazwisko} ", MsgBoxStyle.OkOnly | MsgBoxStyle.Information, "Powitanie");
+                                int wiek = Convert.ToInt32(Interaction.InputBox("Podaj swoj wiek", "Okienko wiek"));
+                                if(wiek=="")
+                                {
+                                    Interaction.MsgBox("Koniec", MsgBoxStyle.OkOnly |MsgBoxStyle.Information,"Koniec");
+                                }else{
+                                        if(wiek>=67)
+                                        {
+                                            Interaction.MsgBox($"Jestes emerytem", MsgBoxStyle.OkOnly | MsgBoxStyle.Information, "Okienko emerytura");
+                                        }else{
+                                                Interaction.MsgBox($"Do emerytury zostalo ci {67-wiek} lat/lata ", MsgBoxStyle.OkOnly | MsgBoxStyle.Information, "Okienko emerytura");
+                                             }
+                                     }
+                             }                   
+
+                     }
+
+
            
-            string imie=Interaction.InputBox("Podaj imie","Okienko imie");
-            Console.WriteLine($"Podano imie {imie}");
-
-            string nazwisko = Interaction.InputBox("Podaj nazwisko", "Okienko nazwisko");
-            Console.WriteLine($"Podano nazwisko {nazwisko}");
-
-            Interaction.MsgBox($"Wiaj {imie} {nazwisko} ", MsgBoxStyle.OkOnly | MsgBoxStyle.Information, "Powitanie");
-
-            int wiek = Convert.ToInt32(Interaction.InputBox("Podaj swoj wiek", "Okienko wiek"));
-            if(wiek>=67)
-            {
-
-                Interaction.MsgBox($"Jestes emerytem", MsgBoxStyle.OkOnly | MsgBoxStyle.Information, "Okienko emerytura");
-            }
-            else
-            {
-                Interaction.MsgBox($"Do emerytury zostalo ci {67-wiek} lat/lata ", MsgBoxStyle.OkOnly | MsgBoxStyle.Information, "Okienko emerytura");
-            }
+            
         }
     }
 }
