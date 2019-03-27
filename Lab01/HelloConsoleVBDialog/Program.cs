@@ -27,18 +27,23 @@ namespace HelloConsoleVBDialog
                         }else{
                                 Console.WriteLine($"Podano nazwisko {nazwisko}");
                                 Interaction.MsgBox($"Wiaj {imie} {nazwisko} ", MsgBoxStyle.OkOnly | MsgBoxStyle.Information, "Powitanie");
-                                int wiek = Convert.ToInt32(Interaction.InputBox("Podaj swoj wiek", "Okienko wiek"));
-                                if(wiek=="")
-                                {
-                                    Interaction.MsgBox("Koniec", MsgBoxStyle.OkOnly |MsgBoxStyle.Information,"Koniec");
-                                }else{
-                                        if(wiek>=67)
-                                        {
-                                            Interaction.MsgBox($"Jestes emerytem", MsgBoxStyle.OkOnly | MsgBoxStyle.Information, "Okienko emerytura");
-                                        }else{
-                                                Interaction.MsgBox($"Do emerytury zostalo ci {67-wiek} lat/lata ", MsgBoxStyle.OkOnly | MsgBoxStyle.Information, "Okienko emerytura");
-                                             }
-                                     }
+                                string line =Interaction.InputBox("Podaj swoj wiek", "Okienko wiek");
+                        try
+                        {
+                         int wiek = Int32.Parse(line);
+                            if (wiek >= 67)
+                            {
+                                Interaction.MsgBox($"Jestes emerytem", MsgBoxStyle.OkOnly | MsgBoxStyle.Information, "Okienko emerytura");
+                            }
+                            else
+                            {
+                                Interaction.MsgBox($"Do emerytury zostalo ci {67 - wiek} lat/lata ", MsgBoxStyle.OkOnly | MsgBoxStyle.Information, "Okienko emerytura");
+                            }
+                        }
+                        catch(FormatException)
+                        {
+                        Interaction.MsgBox("Koniec", MsgBoxStyle.OkOnly | MsgBoxStyle.Information, "Koniec");
+                        }
                              }                   
 
                      }
